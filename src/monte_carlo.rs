@@ -1,7 +1,7 @@
 use rand::Rng;
 
 pub trait Calculator {
-    fn calculate(&self, count:i64) -> f64;
+    fn calculate(&self, count: i64) -> f64;
 }
 
 struct CalculatorImpl {}
@@ -12,12 +12,12 @@ pub fn new() -> impl Calculator {
 
 impl CalculatorImpl {
     fn new() -> CalculatorImpl {
-        return CalculatorImpl{};
+        return CalculatorImpl {};
     }
 }
 
 impl Calculator for CalculatorImpl {
-    fn calculate(&self, count:i64) -> f64 {
+    fn calculate(&self, count: i64) -> f64 {
         let mut lt = 0;
         let mut rnd = rand::thread_rng();
         for _i in 1..count {
@@ -36,7 +36,7 @@ impl Calculator for CalculatorImpl {
 mod tests {
     use crate::monte_carlo::Calculator;
     #[test]
-    fn test_calculate(){
+    fn test_calculate() {
         let calc = crate::monte_carlo::new();
         let val = calc.calculate(1000);
         assert!(3.0 < val);
